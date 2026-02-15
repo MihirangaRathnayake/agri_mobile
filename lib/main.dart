@@ -35,11 +35,11 @@ class AgriBot extends StatelessWidget {
           unselectedItemColor: Colors.grey,
           elevation: 0,
         ),
-        cardTheme: CardTheme(
-          color: const Color(0xFF1E1E1E),
+        cardTheme: const CardThemeData(
+          color: Color(0xFF1E1E1E),
           elevation: 8,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -55,19 +55,17 @@ class AgriBot extends StatelessWidget {
         ),
         textTheme: GoogleFonts.interTextTheme(
           Theme.of(context).textTheme.apply(
-            bodyColor: Colors.white,
-            displayColor: Colors.white,
-          ),
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
+              ),
         ),
         colorScheme: const ColorScheme.dark(
           primary: Colors.green,
           secondary: Colors.greenAccent,
           surface: Color(0xFF1E1E1E),
-          background: Color(0xFF0F0F0F),
           onPrimary: Colors.white,
           onSecondary: Colors.black,
           onSurface: Colors.white,
-          onBackground: Colors.white,
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
@@ -84,14 +82,14 @@ class AgriBot extends StatelessWidget {
           hintStyle: GoogleFonts.inter(color: Colors.grey[500]),
         ),
         switchTheme: SwitchThemeData(
-          thumbColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.selected)) {
+          thumbColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
               return Colors.green;
             }
             return Colors.grey;
           }),
-          trackColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.selected)) {
+          trackColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
               return Colors.green.withOpacity(0.5);
             }
             return Colors.grey.withOpacity(0.3);

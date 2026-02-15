@@ -130,14 +130,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       SizedBox(
                         height: 250,
                         child: SfCartesianChart(
-                          primaryXAxis: CategoryAxis(),
-                          primaryYAxis: NumericAxis(
+                          primaryXAxis: const CategoryAxis(),
+                          primaryYAxis: const NumericAxis(
                             title: AxisTitle(text: 'Liters'),
                           ),
-                          series: <ChartSeries>[
+                          series: <CartesianSeries>[
                             ColumnSeries<UsageData, String>(
                               dataSource: analyticsData?.dailyWaterUsage ?? [],
-                              xValueMapper: (UsageData data, _) => 
+                              xValueMapper: (UsageData data, _) =>
                                   data.date.split('-').last,
                               yValueMapper: (UsageData data, _) => data.usage,
                               color: Colors.blue,
@@ -154,7 +154,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 ),
               ),
               const SizedBox(height: 16),
-              
+
               // Water Usage Stats
               Row(
                 children: [
@@ -178,7 +178,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 ],
               ),
               const SizedBox(height: 16),
-              
+
               // Efficiency Gauge
               Card(
                 elevation: 8,
@@ -203,12 +203,20 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                           series: <CircularSeries>[
                             DoughnutSeries<ChartData, String>(
                               dataSource: [
-                                ChartData('Efficient', analyticsData?.efficiency ?? 0, Colors.green),
-                                ChartData('Waste', 100 - (analyticsData?.efficiency ?? 0), Colors.red),
+                                ChartData(
+                                    'Efficient',
+                                    analyticsData?.efficiency ?? 0,
+                                    Colors.green),
+                                ChartData(
+                                    'Waste',
+                                    100 - (analyticsData?.efficiency ?? 0),
+                                    Colors.red),
                               ],
-                              xValueMapper: (ChartData data, _) => data.category,
+                              xValueMapper: (ChartData data, _) =>
+                                  data.category,
                               yValueMapper: (ChartData data, _) => data.value,
-                              pointColorMapper: (ChartData data, _) => data.color,
+                              pointColorMapper: (ChartData data, _) =>
+                                  data.color,
                               innerRadius: '60%',
                               dataLabelSettings: const DataLabelSettings(
                                 isVisible: true,
@@ -304,14 +312,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       SizedBox(
                         height: 250,
                         child: SfCartesianChart(
-                          primaryXAxis: CategoryAxis(),
-                          primaryYAxis: NumericAxis(
+                          primaryXAxis: const CategoryAxis(),
+                          primaryYAxis: const NumericAxis(
                             title: AxisTitle(text: 'Growth (cm)'),
                           ),
-                          series: <ChartSeries>[
+                          series: <CartesianSeries>[
                             SplineAreaSeries<GrowthData, String>(
                               dataSource: analyticsData?.weeklyGrowth ?? [],
-                              xValueMapper: (GrowthData data, _) => 
+                              xValueMapper: (GrowthData data, _) =>
                                   data.date.split('-').last,
                               yValueMapper: (GrowthData data, _) => data.growth,
                               color: Colors.green.withOpacity(0.3),
@@ -326,7 +334,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 ),
               ),
               const SizedBox(height: 16),
-              
+
               // Growth Stats
               Row(
                 children: [
@@ -387,16 +395,20 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _buildPerformanceMetric('Water Efficiency', analyticsData?.efficiency ?? 0, Colors.blue),
-                      _buildPerformanceMetric('Growth Rate', 85.0, Colors.green),
-                      _buildPerformanceMetric('System Uptime', 98.5, Colors.orange),
-                      _buildPerformanceMetric('Energy Efficiency', 92.0, Colors.purple),
+                      _buildPerformanceMetric('Water Efficiency',
+                          analyticsData?.efficiency ?? 0, Colors.blue),
+                      _buildPerformanceMetric(
+                          'Growth Rate', 85.0, Colors.green),
+                      _buildPerformanceMetric(
+                          'System Uptime', 98.5, Colors.orange),
+                      _buildPerformanceMetric(
+                          'Energy Efficiency', 92.0, Colors.purple),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-              
+
               // Performance Grid
               GridView.count(
                 crossAxisCount: 2,
@@ -442,7 +454,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
     );
   }
 
-  Widget _buildStatCard(String title, String value, IconData icon, Color color) {
+  Widget _buildStatCard(
+      String title, String value, IconData icon, Color color) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -556,7 +569,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
 
   double _calculateTotalUsage() {
     return analyticsData?.dailyWaterUsage
-        .fold(0.0, (sum, item) => sum + item.usage) ?? 0.0;
+            .fold(0.0, (sum, item) => (sum ?? 0.0) + (item.usage ?? 0.0)) ??
+        0.0;
   }
 
   double _calculateAverageUsage() {
@@ -567,7 +581,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
 
   double _calculateTotalGrowth() {
     return analyticsData?.weeklyGrowth
-        .fold(0.0, (sum, item) => sum + item.growth) ?? 0.0;
+            .fold(0.0, (sum, item) => (sum ?? 0.0) + (item.growth ?? 0.0)) ??
+        0.0;
   }
 
   double _calculateGrowthRate() {

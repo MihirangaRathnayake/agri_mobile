@@ -149,7 +149,7 @@ class _LightDetectorScreenState extends State<LightDetectorScreen> {
                       height: 200,
                       child: LineChart(
                         LineChartData(
-                          gridData: FlGridData(show: true),
+                          gridData: const FlGridData(show: true),
                           titlesData: FlTitlesData(
                             leftTitles: AxisTitles(
                               sideTitles: SideTitles(
@@ -160,13 +160,13 @@ class _LightDetectorScreenState extends State<LightDetectorScreen> {
                                 },
                               ),
                             ),
-                            bottomTitles: AxisTitles(
+                            bottomTitles: const AxisTitles(
                               sideTitles: SideTitles(showTitles: false),
                             ),
-                            topTitles: AxisTitles(
+                            topTitles: const AxisTitles(
                               sideTitles: SideTitles(showTitles: false),
                             ),
-                            rightTitles: AxisTitles(
+                            rightTitles: const AxisTitles(
                               sideTitles: SideTitles(showTitles: false),
                             ),
                           ),
@@ -177,7 +177,7 @@ class _LightDetectorScreenState extends State<LightDetectorScreen> {
                               isCurved: true,
                               color: Colors.orange,
                               barWidth: 3,
-                              dotData: FlDotData(show: false),
+                              dotData: const FlDotData(show: false),
                             ),
                           ],
                           minY: 0,

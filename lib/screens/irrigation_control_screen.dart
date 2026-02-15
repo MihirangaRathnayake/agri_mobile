@@ -109,7 +109,7 @@ class _IrrigationControlScreenState extends State<IrrigationControlScreen> {
                         Column(
                           children: [
                             Text(
-                              '${flowRate.toStringAsFixed(1)}',
+                              flowRate.toStringAsFixed(1),
                               style: const TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -176,7 +176,7 @@ class _IrrigationControlScreenState extends State<IrrigationControlScreen> {
                       ),
                       value: isAutoMode,
                       onChanged: (value) => _toggleAutoMode(),
-                      activeColor: Colors.green,
+                      activeThumbColor: Colors.green,
                     ),
                   ],
                 ),
@@ -262,7 +262,7 @@ class _IrrigationControlScreenState extends State<IrrigationControlScreen> {
             onChanged: (value) {
               // Handle schedule toggle
             },
-            activeColor: Colors.green,
+            activeThumbColor: Colors.green,
           ),
         ],
       ),
