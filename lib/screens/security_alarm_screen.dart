@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'dart:async';
 
 class SecurityAlarmScreen extends StatefulWidget {
@@ -132,7 +132,7 @@ class _SecurityAlarmScreenState extends State<SecurityAlarmScreen> {
             // Security Status Display
             Card(
               elevation: 8,
-              color: isAlarmTriggered ? Colors.red.withOpacity(0.1) : null,
+              color: isAlarmTriggered ? Colors.red.withValues(alpha: 0.1) : null,
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Column(
@@ -370,7 +370,7 @@ class _SecurityAlarmScreenState extends State<SecurityAlarmScreen> {
                   style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  '${alert['location']} • ${alert['time']}',
+                  '${alert['location']} â€¢ ${alert['time']}',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[400],

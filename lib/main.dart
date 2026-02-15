@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/login_screen.dart';
 import 'screens/main_navigation.dart';
@@ -90,9 +90,9 @@ class AgriBot extends StatelessWidget {
           }),
           trackColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.selected)) {
-              return Colors.green.withOpacity(0.5);
+              return Colors.green.withValues(alpha: 0.5);
             }
-            return Colors.grey.withOpacity(0.3);
+            return Colors.grey.withValues(alpha: 0.3);
           }),
         ),
       ),
@@ -101,3 +101,4 @@ class AgriBot extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -178,7 +178,7 @@ class _WeatherScreenState extends State<WeatherScreen>
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
-                color: Colors.white.withOpacity(0.9),
+                color: Colors.white.withValues(alpha: 0.9),
                 child: Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: Column(
@@ -190,7 +190,7 @@ class _WeatherScreenState extends State<WeatherScreen>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${weatherData?.temperature.toInt() ?? 0}°C',
+                                '${weatherData?.temperature.toInt() ?? 0}Â°C',
                                 style: GoogleFonts.inter(
                                   fontSize: 48,
                                   fontWeight: FontWeight.bold,
@@ -265,7 +265,7 @@ class _WeatherScreenState extends State<WeatherScreen>
                   Expanded(
                     child: _buildDetailCard(
                       'Feels Like',
-                      '${(weatherData?.temperature ?? 0) + 2}°C',
+                      '${(weatherData?.temperature ?? 0) + 2}Â°C',
                       Icons.thermostat,
                       Colors.red,
                     ),
@@ -296,7 +296,7 @@ class _WeatherScreenState extends State<WeatherScreen>
                   Expanded(
                     child: _buildDetailCard(
                       'Dew Point',
-                      '${(weatherData?.temperature ?? 0) - 5}°C',
+                      '${(weatherData?.temperature ?? 0) - 5}Â°C',
                       Icons.water,
                       Colors.cyan,
                     ),
@@ -428,7 +428,7 @@ class _WeatherScreenState extends State<WeatherScreen>
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white.withOpacity(0.9),
+      color: Colors.white.withValues(alpha: 0.9),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -462,7 +462,7 @@ class _WeatherScreenState extends State<WeatherScreen>
     return Card(
       elevation: 8,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.white.withOpacity(0.9),
+      color: Colors.white.withValues(alpha: 0.9),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -484,7 +484,7 @@ class _WeatherScreenState extends State<WeatherScreen>
             ),
             const SizedBox(height: 12),
             Text(
-              '${forecast.temperature.toInt()}°C',
+              '${forecast.temperature.toInt()}Â°C',
               style: GoogleFonts.inter(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -516,7 +516,7 @@ class _WeatherScreenState extends State<WeatherScreen>
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white.withOpacity(0.9),
+      color: Colors.white.withValues(alpha: 0.9),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -524,7 +524,7 @@ class _WeatherScreenState extends State<WeatherScreen>
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(icon, color: color, size: 24),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:async';
 import 'dart:math';
@@ -92,7 +92,7 @@ class _WaterLevelScreenState extends State<WaterLevelScreen> {
                             width: double.infinity,
                             height: (waterLevel / 100) * 200,
                             decoration: BoxDecoration(
-                              color: _getWaterLevelColor().withOpacity(0.7),
+                              color: _getWaterLevelColor().withValues(alpha: 0.7),
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(5),
                                 bottomRight: Radius.circular(5),
@@ -199,7 +199,7 @@ class _WaterLevelScreenState extends State<WaterLevelScreen> {
                         ),
                       ),
                       progressColor: _getWaterLevelColor(),
-                      backgroundColor: Colors.grey.withOpacity(0.3),
+                      backgroundColor: Colors.grey.withValues(alpha: 0.3),
                       barRadius: const Radius.circular(10),
                     ),
                   ],

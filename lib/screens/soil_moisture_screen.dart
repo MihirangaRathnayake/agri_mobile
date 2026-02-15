@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:async';
 import 'dart:math';
@@ -95,7 +95,7 @@ class _SoilMoistureScreenState extends State<SoilMoistureScreen> {
                         ],
                       ),
                       progressColor: _getMoistureColor(),
-                      backgroundColor: Colors.grey.withOpacity(0.3),
+                      backgroundColor: Colors.grey.withValues(alpha: 0.3),
                       circularStrokeCap: CircularStrokeCap.round,
                     ),
                     

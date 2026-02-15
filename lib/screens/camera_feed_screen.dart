@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'dart:async';
 
 class CameraFeedScreen extends StatefulWidget {
@@ -109,8 +109,8 @@ class _CameraFeedScreenState extends State<CameraFeedScreen> {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  Colors.green.withOpacity(0.3),
-                                  Colors.blue.withOpacity(0.3),
+                                  Colors.green.withValues(alpha: 0.3),
+                                  Colors.blue.withValues(alpha: 0.3),
                                 ],
                               ),
                             ),
@@ -363,7 +363,7 @@ class _CameraFeedScreenState extends State<CameraFeedScreen> {
                   style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  '$time • $size',
+                  '$time â€¢ $size',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey[400],

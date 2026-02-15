@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dashboard_screen.dart';
 import 'soil_moisture_screen.dart';
@@ -124,7 +124,7 @@ class _MainNavigationState extends State<MainNavigation> {
           color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 10,
               offset: const Offset(0, -5),
             ),
@@ -150,7 +150,7 @@ class _MainNavigationState extends State<MainNavigation> {
                     ),
                     decoration: BoxDecoration(
                       color: isSelected 
-                          ? item.color.withOpacity(0.1)
+                          ? item.color.withValues(alpha: 0.1)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(12),
                     ),
