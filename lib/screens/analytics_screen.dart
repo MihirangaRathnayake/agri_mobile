@@ -33,11 +33,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   Future<void> _loadAnalyticsData() async {
     try {
       final data = await ApiService().getAnalyticsData();
+      if (!mounted) return;
       setState(() {
         analyticsData = data;
         isLoading = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         isLoading = false;
       });
@@ -568,8 +570,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   double _calculateTotalUsage() {
-    return analyticsData?.dailyWaterUsage
-            .fold(0.0, (sum, item) => (sum ?? 0.0) + (item.usage ?? 0.0)) ??
+    return analyticsData?.dailyWaterUsage.fold(
+          0.0,
+          (sum, item) => sum + item.usage,
+        ) ??
         0.0;
   }
 
@@ -580,8 +584,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   double _calculateTotalGrowth() {
-    return analyticsData?.weeklyGrowth
-            .fold(0.0, (sum, item) => (sum ?? 0.0) + (item.growth ?? 0.0)) ??
+    return analyticsData?.weeklyGrowth.fold(
+          0.0,
+          (sum, item) => sum + item.growth,
+        ) ??
         0.0;
   }
 

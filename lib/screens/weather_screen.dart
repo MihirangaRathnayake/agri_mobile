@@ -44,12 +44,14 @@ class _WeatherScreenState extends State<WeatherScreen>
   Future<void> _loadWeatherData() async {
     try {
       final data = await ApiService().getWeatherData();
+      if (!mounted) return;
       setState(() {
         weatherData = data;
         isLoading = false;
       });
       _animationController.forward();
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         isLoading = false;
       });
